@@ -1,0 +1,49 @@
+{
+  "name": "HB-Pet",
+  "version": "28.0.0",
+  "main": "dist-electron/main/index.js",
+  "description": "一个 汉堡 ",
+  "author": "gen9009",
+  "license": "MIT",
+  "private": true,
+  "keywords": [
+    "electron",
+    "rollup",
+    "vite",
+    "vue3",
+    "vue"
+  ],
+  "debug": {
+    "env": {
+      "VITE_DEV_SERVER_URL": "http://127.0.0.1:3344/"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build && electron-builder",
+    "electron:build_win": " vite build && electron-builder --windows",
+    "electron:build_mac": "vite build && electron-builder --mac",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/three": "^0.162.0",
+    "@vitejs/plugin-vue": "^5.0.1",
+    "electron": "^28.0.0",
+    "electron-builder": "^23.6.0",
+    "sass": "^1.71.1",
+    "tree-kill": "^1.2.2",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vite-plugin-electron": "^0.28.0",
+    "vite-plugin-electron-renderer": "^0.14.5",
+    "vue": "^3.4.1",
+    "vue-tsc": "^1.8.27",
+    "unocss": "^0.58.5",
+    "@electron/remote": "^2.1.2",
+    "@unocss/reset": "^0.58.5",
+    "dayjs": "^1.11.10",
+    "gsap": "^3.12.5",
+    "three": "^0.162.0"
+  },
+  "dependencies": {}
+}

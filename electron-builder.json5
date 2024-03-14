@@ -1,0 +1,52 @@
+/**
+ * @see https://www.electron.build/configuration/configuration
+ */
+{
+  $schema: 'https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json',
+  appId: 'YourAppID',
+  asar: true,
+  productName: '🍔-Pet',
+  directories: {
+    output: 'release/${version}'
+  },
+  files: ['dist', 'dist-electron'],
+  extraResources: [
+    {
+      from: './public/compress-model.gltf',
+      to: 'app/dist/compress-model.gltf'
+    },
+    {
+      from: './public/lottie.js',
+      to: 'app/dist/lottie.js'
+    },
+    {
+      from: './public/汉堡.json',
+      to: 'app/dist/汉堡.json'
+    }
+  ],
+  mac: {
+    icon: './build/icons/icon.icns',
+    artifactName: '${productName}_${version}.${ext}',
+    category: 'public.app-category.developer-tools', // 应用类别
+    target: ['dmg']
+  },
+  win: {
+    target: [
+      {
+        target: 'nsis',
+        arch: ['x64']
+      }
+    ],
+    artifactName: '${productName}-Windows-${version}-Setup.${ext}'
+  },
+  nsis: {
+    oneClick: false,
+    perMachine: false,
+    allowToChangeInstallationDirectory: true,
+    deleteAppDataOnUninstall: false
+  },
+  linux: {
+    target: ['AppImage'],
+    artifactName: '${productName}-Linux-${version}.${ext}'
+  }
+}
