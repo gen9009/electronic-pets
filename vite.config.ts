@@ -4,6 +4,8 @@ import vue from '@vitejs/plugin-vue'
 import electron from 'vite-plugin-electron/simple'
 import pkg from './package.json'
 import unocss from 'unocss/vite';
+import vueJsx from "@vitejs/plugin-vue-jsx"
+import renderer from 'vite-plugin-electron-renderer'
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
   fs.rmSync('dist-electron', { recursive: true, force: true })
@@ -14,8 +16,9 @@ export default defineConfig(({ command }) => {
 
   return {
     plugins: [
-      unocss(),
+      vueJsx(),
       vue(),
+      unocss(),
       electron({
         main: {
           entry: 'electron/main/index.ts',
@@ -51,6 +54,14 @@ export default defineConfig(({ command }) => {
           },
         },
         renderer: {},
+      }),
+      renderer({
+        resolve: {
+          // C/C++ modules must be pre-bundle
+          serialport: { type: 'cjs' },
+          // `esm` modules only if Vite does not pre-bundle them correctly
+          got: { type: 'esm' },
+        },
       }),
     ],
     server: process.env.VSCODE_DEBUG && (() => {

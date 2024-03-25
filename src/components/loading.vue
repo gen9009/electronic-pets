@@ -3,7 +3,7 @@
 </template>
 <script setup>
 import { ref, onMounted } from 'vue'
-import { getAssetPath } from '../../utils'
+import { getAssetPath } from '../utils'
 const loading = ref()
 onMounted(async () => {
   await import(getAssetPath('lottie.js'))

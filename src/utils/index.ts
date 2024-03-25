@@ -11,7 +11,6 @@ export const isDev = process.env.npm_node_execpath ? true : false
  * @param {string} name
  */
 export const getAssetPath = (name: string): string => {
-  console.log('🚀::::::🐶💩', isDev)
   if (isDev) {
     return '/public/' + name
   }
@@ -23,9 +22,10 @@ export const getAssetPath = (name: string): string => {
   }
   // 生产win
   if (process.platform === 'win32') {
-    console.log('🚀::::::🐶💩', path.dirname(app.getPath('exe')) + '\\resources\\app\\dist\\' + name)
+    console.log('🚀::::::🐶💩','我是wn32', path.dirname(app.getPath('exe')) + '\\resources\\app\\dist\\' + name)
     return path.dirname(app.getPath('exe')) + '\\resources\\app\\dist\\' + name
   }
   // 其他情况，返回默认路径
   return '';
 }
+

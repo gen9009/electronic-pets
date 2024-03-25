@@ -35,24 +35,24 @@ async function createWindow() {
     title: 'Main window',
     icon: join(process.env.PUBLIC, 'favicon.ico'),
     frame: false,
-    width: 300, //默认宽度
-    height: 300, //默认高度
+    width: 220, //默认宽度
+    height: 220, //默认高度
     transparent: true, // 导航栏透明
     // minWidth: 780, //最小宽度
     // minHeight: 400, //最小高度
     resizable: true, // 缩放
-    skipTaskbar: true, //显示主窗口
     // titleBarStyle: 'hidden',
     alwaysOnTop: true, // 窗口始终位于顶部
-    // titleBarOverlay: {
-    //   height: 30
-    // },
+    titleBarOverlay: {
+      height: 30
+    },
     webPreferences: {
       preload,
       nodeIntegration: true,
       contextIsolation: false,
       backgroundThrottling: false, //窗口节流
-      experimentalFeatures: true
+      experimentalFeatures: true,
+      // devTools:false
     }
   });
   // 获取屏幕的宽度和高度
@@ -66,7 +66,7 @@ async function createWindow() {
     // electron-vite-vue#298
     win.loadURL(url);
     // Open devTool if the app is not packaged
-    win.webContents.openDevTools();
+    // win.webContents.openDevTools();
   } else {
     win.loadFile(indexHtml);
   }

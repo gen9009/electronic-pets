@@ -21,7 +21,7 @@ function createTray(win: BrowserWindow) {
   // const image = nativeImage.createFromPath();
   // console.log('🚀::::::🐶💩', image)
   // image.setTemplateImage(true);
-  myGlobal._tray = new Tray('public/images/logo.png'); //系统托盘图标
+  myGlobal._tray = new Tray('public/images/icon.svg'); //系统托盘图标
   const menuTemplate: Array<MenuItemConstructorOptions | MenuItem> = [
     // {
     //   label: '意见反馈',

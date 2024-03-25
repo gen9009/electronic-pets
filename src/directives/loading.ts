@@ -1,6 +1,6 @@
 import type { DirectiveBinding } from "vue";
 import { createApp, Directive } from "vue";
-import Loading from '../components/loading/index.vue'
+import Loading from '../components/loading.vue'
 import gsap from 'gsap'
 const appendElementSibling = (el: HTMLElement, bind: DirectiveBinding) => {
   /* 
