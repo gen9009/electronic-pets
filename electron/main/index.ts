@@ -43,6 +43,7 @@ async function createWindow() {
     resizable: true, // 缩放
     // titleBarStyle: 'hidden',
     alwaysOnTop: true, // 窗口始终位于顶部
+    hasShadow:false,
     titleBarOverlay: {
       height: 30
     },
